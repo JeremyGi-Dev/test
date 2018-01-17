@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block style %}
+    <style>
+        div.container {
+            width: 100%;
+            border: 1px solid gray;
+        }
+
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color: black;
+            clear: left;
+            text-align: center;
+        }
+
+        nav {
+            float: left;
+            max-width: 160px;
+            margin: 0;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul a {
+            text-decoration: none;
+        }
+
+        article {
+            margin-left: 170px;
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+        }
+    </style>
+        {% endblock %}
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Glory4gamers</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><button type="button" class="btn btn-primary"><a href="{{ path('new_contact') }}">Contact</a></button></li>
+            </br>
+            <li><button type="button" class="btn btn-primary"><a href="{{ path('fos_user_security_login') }}">Se connecter</a></button></li>
+            </br>
+            <li><button type="button" class="btn btn-primary"><a href="{{ path('fos_user_registration_register') }}">S'enregister</a></button></li>
+            </br>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><button type="button" class="btn btn-primary"><a href="{{ path('list_contact') }}">Liste des contacts</a></button></li>
+            {% endif %}
+            </br>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><button type="button" class="btn btn-primary"><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></button></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <article>
+        <h1>Qui Sommes nous ?</h1>
+        <p>Glory4Gamers est une start-up française en plein développement qui réunit à ce jour plus de 450.000 fans d'eSports.
+            Les équipes de Glory4Gamers ont à cœur de démocratiser la pratique du sport électronique en proposant à tout joueur de prendre part,
+            quel que soit son niveau, à des compétitions en ligne sur les licences phares du marché que sont Call of Duty, Fifa, League of Legends, Hearthstone, Rocket League ou encore Rainbow Six Siege.
+            En complément des tournois quotidiens dotés, Glory4Gamers offre régulièrement aux joueurs des événements de plus grande envergure leur permettant de remporter davantage de dotations,
+            mais également de permettre à ses partenaires B2B (sponsors et éditeurs) d'assurer la promotion de leurs marques auprès d'un public qualifié.
+
+            </br></br>Mais encore ?</br></br>
+
+            Glory4Gamers est une plateforme à inscription 100% gratuite dont la particularité est de pouvoir faire jouer des milliers de participants en même temps sur des tournois à arbitrage en temps réel
+            grâce à une infrastructure technique unique issue de plus de trois années de R&D. Afin d'assurer une expérience de jeu sans faille à autant d'utilisateurs,
+            des arbitres sont disponibles en permanence pour aider les joueurs durant leurs matchs.
+
+            Aujourd’hui, Glory4Gamers innove une fois encore en mettant en place un studio dédié à la retransmission en direct de compétition offline et d’événements exclusifs.
+            Ce nouveau moyen d’expression permet à la structure d’organiser régulièrement des événements en direct de ses locaux et de servir de véritable vitrine à nos partenaires..</p>
+    </article>
+
+</div>
+
+</body>
+</html>
+{% endblock %}

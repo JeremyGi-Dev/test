@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <h1></h1>
+    <table style="border: 1px solid black;">
+
+        {% for contact in contacts %}
+        <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">{{ contact.id }}</td>
+                <td style="border: 1px solid black;">{{ contact.name }}</td>
+                <td style="border: 1px solid black;">{{ contact.content }}</td>
+
+        {% endfor %}
+    </tr>
+    </table>
+    </br>
+    <button type="button" class="btn btn-primary"><a href="{{ path('homepage') }}">Homepage</a></button>
+    </body>
+    </html>
+{% endblock %}

@@ -1,0 +1,20 @@
+<h1>Contact</h1>
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+<div style="padding: 30px">
+    {{ form_label(form.name) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+</div>
+
+<div style="padding: 10px">
+    {{ form_label(form.content) }}
+    {{ form_errors(form.content) }}
+    {{ form_widget(form.content) }}
+</div>
+
+{{ form_end(form) }}
+
+<button type="button" class="btn btn-primary" style="padding: 5px"><a href="{{ path('homepage') }}">Retour</a></button>
